@@ -27,7 +27,7 @@ var db = require('mongojs').connect(dburl, collections);
 
 var request = request.defaults({jar: true});
 
-app.set('port', 8888);
+app.set('port', process.env.PORT || 8888);
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.favicon());
 app.use(express.logger('dev'));
