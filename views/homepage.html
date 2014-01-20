@@ -1,0 +1,154 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+	<head>
+		<title>Photo</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css"> </link>
+		<script src="/javascripts/jquery-2.0.3.min.js" type="text/javascript"> </script>
+		<script src="/javascripts/jquery.lazyload.min.js" type="text/javascript"> </script>
+		
+		<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			/*var ctx = canvas.getContext('2d');
+
+			canvas.onclick = function (e) {
+			    var vl = vid.duration,
+			        w = canvas.width,
+			        x = e.clientX - 5;
+
+			    vid.currentTime = x / w * vl;
+			}
+			loop();
+
+			function loop() {
+
+			    var b = vid.buffered,
+			        i = b.length,
+			        w = canvas.width,
+			        h = canvas.height,
+			        vl = vid.duration,
+			        x1, x2;
+
+			    ctx.fillStyle = '#000';
+			    ctx.fillRect(0, 0, w, h);
+			    ctx.fillStyle = '#d00';
+
+			    while (i--) {
+			        x1 = b.start(i) / vl * w;
+			        x2 = b.end(i) / vl * w;
+			        ctx.fillRect(x1, 0, x2 - x1, h);
+			    }
+			    ctx.fillStyle = '#fff';
+
+			    x1 = vid.currentTime / vl * w;
+			    ctx.textBaseline = 'top';
+			    ctx.textAlign = 'left';
+
+			    ctx.fillText(vid.currentTime.toFixed(1), 4, 4);
+
+			    ctx.textAlign = 'right';
+			    ctx.fillText(vl.toFixed(1), w - 4, 4);
+
+			    ctx.beginPath();
+			    ctx.arc(x1, h * 0.5, 7, 0, 2 * Math.PI);
+			    ctx.fill();
+
+			    setTimeout(loop, 29);
+			};*/
+
+            $("#listModel").hide();
+
+            $("#listModelButton").click(function(){
+                $("#listModel").slideToggle();
+            });
+
+
+            function ajaxList() {
+                $.ajax({
+                    url: "/listModelAjax",
+                    type: 'POST',
+                    complete: function() {
+                    },
+                    success: function(data) {
+                        var listModel;
+                        data.forEach(function(each){
+
+                        })
+                    },
+                    error: function() {
+                        alert('error');
+                    }
+                });
+            }
+
+			var page = 1;
+			var flag = 1;
+			
+			ajaxLoad(page, $("#bottom").text());
+			
+			$(window).scroll(function(){
+				var y = $(window).scrollTop()+$(window).height();
+				var w = $("#wrap").height();
+				//$("#bottom").html(y+"/"+w);
+				if(w <= y){
+					if(flag == 1) {
+					flag = 0;
+					page = page+1;
+					setTimeout(function(){
+						ajaxLoad(page,$("#bottom").text());
+						flag = 1;
+					}, 1000);
+
+					}
+				}
+				
+			});
+			
+			function ajaxLoad(page, fromTime) {
+				$.ajax({
+					url: "/photoAjax",
+					type: 'POST',
+					data: {page:page, fromTime:fromTime},
+					complete: function() {
+					   },
+					success: function(data) {
+						$("#bottom").text(data.fromTime);
+						$(data.contents).hide().appendTo("#loadAjax").fadeIn(1000);
+						$("img.lazy").lazyload({
+						});
+					   },
+					error: function() {
+					            alert('error');
+					        }
+				});
+			}
+		});
+		  </script>
+	</head>
+	<body>
+	<center>
+	<div id="wrap">
+		<div id="upLoadBar">
+            <div id="listModelButton"></div>
+            <div id="listModel"></div>
+			<div id="uploadContainer">
+                <form method="post" enctype="multipart/form-data" action="/upload">
+				<input type="file" id="uploadFile" multiple="multiple" name="upload"/>
+                <input type="submit">
+                </form>
+			</div>
+
+            <video id="vid" width="500" height="280" autoplay="true">
+                <source src="" type="video/mp4">
+            </video>
+            <br />
+            <canvas id="canvas" width="500" height="16"></canvas>
+		</div>
+		<div id="loadAjax"></div>
+		<div id="bottom" style="display: none;">none</div>
+		<div id="loading-wrap">
+			<div id="loading"></div>
+		</div>
+	</div>
+	</center>
+	</body>
+</html>

@@ -1,0 +1,6 @@
+<% body.forEach(function(photo){ %>
+<div class="outSide" >
+	<div class="modelName" ><%=photo.model%></div>
+	<img class="lazy" data-original="<%=photo.url%>" src="/images/loading.gif" \>
+</div>
+<% }); %>
