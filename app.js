@@ -122,7 +122,7 @@ function getDetail(skip) {
 							src: [jquery],
 							done: function (errors, window) {
 								var $ = window.$;
-								if (entry.content = $('.entry-content').text()) {
+								if (entry.content = $('.entry-content').html()) {
 									db.entries.update(
 										{'date': entry.date},
 										entry,
