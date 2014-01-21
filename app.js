@@ -211,13 +211,10 @@ app.get('/cmsreset', function (req, res) {
 	res.send('Page 1 will be re-download');
 });
 
-app.get('/cmddown', function (req, res) {
-	res.send(countDetailDown);
-});
 
 app.post('/cmsnews', function (req, res) {
 	var news = null;
-	db.entries.find({}).limit(10).sort({date: -1}, function (err, result) {
+	db.entries.find({}).limit(20).sort({date: -1}, function (err, result) {
 		if (!err && result.length != 0) {
 			news = result;
 			res.header("Cache-Control", "no-cache, no-store, must-revalidate");
