@@ -235,8 +235,8 @@ app.post('/cmsnews', function (req, res) {
 });
 
 app.post('/register', function (req, res) {
-	var name = req.body.name;
-	var email = req.body.email;
+	var name = 'user';
+	var email = 'email';
 	var regId = req.body.regId;
 	db.noti.update(
 		{ "regId": regId },
@@ -257,7 +257,7 @@ function sendNoti(content){
 		delayWhileIdle: true,
 		timeToLive: 10,
 		data: {
-			price: content
+			news: content
 		}
 	});
 	var sender = new gcm.Sender('AIzaSyAMfzLbZHf5-CDVAnxFmuP6clCaFsDJNi8');
