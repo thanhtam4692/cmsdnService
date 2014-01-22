@@ -251,7 +251,7 @@ function sendNoti(content){
     // with object values
 	var message = new gcm.Message({
 		collapseKey: '',
-		delayWhileIdle: true,
+		//delayWhileIdle: true,
 		//timeToLive: 10,
 		data: {
 			news: content
