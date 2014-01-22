@@ -252,7 +252,7 @@ function sendNoti(content){
 	var message = new gcm.Message({
 		collapseKey: 'cms',
 		delayWhileIdle: true,
-		timeToLive: 10,
+		//timeToLive: 10,
 		data: {
 			news: content
 		}
