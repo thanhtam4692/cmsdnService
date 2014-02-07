@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="caece848-2be5-4acd-8e3b-3ce8a277a2ba" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="caece848-2be5-4acd-8e3b-3ce8a277a2ba" name="Default" comment="" />
     <ignored path="cmsdnService.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,7 +26,7 @@
       <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="191" column="31" selection-start="4987" selection-end="4987" vertical-scroll-proportion="0.33251232" vertical-offset="2730" max-vertical-offset="4275">
+            <state line="216" column="31" selection-start="5641" selection-end="5641" vertical-scroll-proportion="0.48029557" vertical-offset="3045" max-vertical-offset="4275">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -246,7 +243,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="191" column="31" selection-start="4987" selection-end="4987" vertical-scroll-proportion="0.33251232" vertical-offset="2730" max-vertical-offset="4275">
+        <state line="216" column="31" selection-start="5641" selection-end="5641" vertical-scroll-proportion="0.48029557" vertical-offset="3045" max-vertical-offset="4275">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
