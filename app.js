@@ -211,6 +211,11 @@ app.get('/cmsreset', function (req, res) {
 	res.send('Page 1 will be re-download');
 });
 
+app.get('/download', function (req, res){
+	fs.readFile('./public/FPTGroup1RssReader.apk', function(err,data){
+		res.send(data);
+	});
+});
 
 app.post('/cmsnews', function (req, res) {
 	var news = null;
