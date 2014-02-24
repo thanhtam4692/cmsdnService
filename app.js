@@ -41,7 +41,7 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-var user = {log: 'tamttse90036', pw: 'xitrum4692'};
+var user = {log: 'tamttse90036', pw: 'xitrum'};
 
 // development only
 if ('development' == app.get('env')) {
